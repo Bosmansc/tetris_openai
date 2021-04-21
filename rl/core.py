@@ -182,7 +182,7 @@ class Agent:
                             continue
                         if key not in accumulated_info:
                             accumulated_info[key] = np.zeros_like(value)
-                        accumulated_info[key] += value
+                     ##   accumulated_info[key] += value REMOVE THIS LINE OF CODE
                     callbacks.on_action_end(action)
                     reward += r
                     if done:
@@ -356,7 +356,7 @@ class Agent:
                             continue
                         if key not in accumulated_info:
                             accumulated_info[key] = np.zeros_like(value)
-                        accumulated_info[key] += value
+                     ##   accumulated_info[key] += value REMOVE THIS LINE OF CODE
                     if d:
                         done = True
                         break
