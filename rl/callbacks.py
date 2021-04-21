@@ -248,11 +248,11 @@ class TrainIntervalLogger(Callback):
                 formatted_infos = ''
                 if len(self.infos) > 0:
                     infos = np.array(self.infos)
-                    if not np.isnan(infos).all():  # not all values are means
-                        means = np.nanmean(self.infos, axis=0)
-                        assert means.shape == (len(self.info_names),)
-                        for name, mean in zip(self.info_names, means):
-                            formatted_infos += f' - {name}: {mean:.3f}'
+                  #  if not np.isnan(infos).all():  # not all values are means REMOVE THESE STEPS, info from tetris gym is not compatible
+                  #      means = np.nanmean(self.infos, axis=0)
+                  #      assert means.shape == (len(self.info_names),)
+                  #      for name, mean in zip(self.info_names, means):
+                  #          formatted_infos += f' - {name}: {mean:.3f}'
                 print(f'{len(self.episode_rewards)} episodes - episode_reward: {np.mean(self.episode_rewards):.3f} [{np.min(self.episode_rewards):.3f}, {np.max(self.episode_rewards):.3f}]{formatted_metrics}{formatted_infos}')
                 print('')
             self.reset()
