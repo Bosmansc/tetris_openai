@@ -361,7 +361,11 @@ class Agent:
                         done = True
                         break
                 if nb_max_episode_steps and episode_step >= nb_max_episode_steps - 1:
+                    ## EDITED THIS PIECE OF CODE TO KNOW WHEN EPISODE REACHES STEP LIMIT IN EPISODE
+                    ## set as last episode in the info df
+                    env.df_info.loc[env.df_info.index[-1], 'new_episode'] = 1
                     done = True
+                    print("The test episode reached the defined maximum amount of steps per episode!")
                 self.backward(reward, terminal=done)
                 episode_reward += reward
 
